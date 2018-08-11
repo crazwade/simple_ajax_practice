@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>test_ajax</title>
+    </head>
+    <style>
+    #body{
+        background-color: pink;
+    }
+    .head{
+        width: 400px;
+        background-color: black;
+        margin: 0px auto;
+        padding: 10px 0px;
+    }
+    h1{
+        color: white;
+        font-size: 36pt;
+        text-align: center;
+    }
+    h2{
+        color: white;
+        text-align: right;
+        font-size: 16px;
+    }
+    h3{
+        color: black;
+        text-align: center;
+        font-size: 16px;
+    }
+    .body{
+        width:400px;
+        margin: 0px auto;
+        background-color: yellow;
+        margin-top: 50px;
+    }
+    .foot{
+        width: 400px;
+        height: 50px;
+        background-color: black;
+        margin: 0px auto;
+        margin-top: 20px;
+    }
+    .footdiv{
+        padding-top: 20px;
+    }
+    .select{
+        width: 400px;
+        background-color: gray;
+        margin: 0px auto;
+    }
+    </style>
+
+    <script>
+        function showCustomer(str) {
+            var xhttp;    
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("show_body").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", str+".php", true);
+            
+            xhttp.send();
+        }
+    </script>
+
+    <body id='body'>
+        <div class="head">
+            <h1>title HERE</h1>
+        </div>
+        <div class="select">
+            <select name="" onchange="showCustomer(this.value)">
+                <option value="">please select....</option>
+                <option value="test1">test1</option>
+                <option value="test2">test2</option>
+                <option value="test3">test3</option>
+            </select>
+        </div>
+        <form action="test_post.php" method="post">
+            <div class="body" id="show_body">
+                
+            </div>
+            
+        </form>
+        <div class="foot">
+            <div class="footdiv">
+                <h2>im footer.</h2>
+            </div>
+        </div>
+    </body>
+</html>
