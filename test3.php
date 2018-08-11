@@ -4,7 +4,7 @@
 4. The server processes the request
 5. The server sends a response back to the web page
 6. The response is read by JavaScript
-7. Proper action (like page update) is performed by JavaScript</h3>
+7. Proper action (like page update) is performed by JavaScript.</h3>
 test3:<input type="text" name="test3" required>
 <input type="hidden" name="check" value="test3">
 <input type="submit" name="" id="">
